@@ -1,0 +1,32 @@
+  CC=g++
+
+  INPUT = input.txt#
+  OUTPUT = output#
+
+
+
+all:Dev1
+
+  Dev1: Dev1.c opcode.o symbols.o lines.o functions.h
+	$(CC) main.o opcode.o symbols.o lines.o 
+
+  Dev1.o: Dev1.o
+	gcc Dev1.c
+
+  symbols.c:symbols.o
+	$(CC) symbols.c
+  
+  opcode.c: opcode.c
+	$(CC) opcode.c
+
+  lines.o:lines.o
+	$(CC) lines.c
+
+  Dev1.o: start.o
+	$(CC) $(CFLAGS) Dev1.c
+
+  clean:
+	rm *o Dev1.o
+	
+
+  
